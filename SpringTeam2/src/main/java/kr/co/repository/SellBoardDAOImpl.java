@@ -1,5 +1,9 @@
 package kr.co.repository;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,6 +29,30 @@ public class SellBoardDAOImpl implements SellBoardDAO{
 	public SellBoardVO read(int bnum) {
 		
 		return sqlSession.selectOne(NS+".read", bnum);
+	}
+
+	@Override
+	public List<String> getAttaches(int bnum) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+".getAttaches", bnum);
+	}
+
+	@Override
+	public SellBoardVO updateUI(int bnum) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NS+".updateUI", bnum);
+	}
+
+	@Override
+	public void updateUI(SellBoardVO vo) {
+		sqlSession.update(NS+".update", vo);
+		
+	}
+
+	@Override
+	public void delete(int bnum) {
+		sqlSession.delete(NS+".delete", bnum);
+		
 	}
 
 }

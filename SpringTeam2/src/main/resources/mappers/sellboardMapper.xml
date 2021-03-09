@@ -21,4 +21,22 @@
    <select id="read" resultType="kr.co.domain.SellBoardVO">
 	SELECT * FROM sellboard WHERE bnum = #{bnum}   
    </select>
+   
+	<select id="getAttaches" resultType="string">
+      SELECT fullName FROM attach WHERE bnum = #{bnum} order by regdate ASC
+	</select>
+	
+	<select id="updateUI" resultType="kr.co.domain.SellBoardVO">
+		SELECT * FROM sellboard WHERE bnum = #{bnum}
+	</select>
+	
+	<update id="update">
+		UPDATE sellboard SET 
+		writer = #{writer}, title = #{title}, content = #{content}, cost = #{cost}, price = #{price}, bcount = #{bcount}
+		WHERE bnum = #{bnum}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM sellboard WHERE bnum = #{bnum}
+	</delete>
 </mapper>

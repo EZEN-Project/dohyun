@@ -22,6 +22,7 @@ public class SellBoardVO implements Serializable{
 	private Date regdate;
 	private Date updatedate;
 	private int gnum;
+	private String[] files;
 	
 	
 	public SellBoardVO() {
@@ -44,6 +45,39 @@ public class SellBoardVO implements Serializable{
 		this.regdate = regdate;
 		this.updatedate = updatedate;
 		this.gnum = gnum;
+	}
+
+	
+	
+
+	public SellBoardVO(int bnum, String title, String writer, String content, String name, int cost, int price,
+			int veiwcnt, int bcount, Date regdate, Date updatedate, int gnum, String[] files) {
+		super();
+		this.bnum = bnum;
+		this.title = title;
+		this.writer = writer;
+		this.content = content;
+		this.name = name;
+		this.cost = cost;
+		this.price = price;
+		this.veiwcnt = veiwcnt;
+		this.bcount = bcount;
+		this.regdate = regdate;
+		this.updatedate = updatedate;
+		this.gnum = gnum;
+		this.files = files;
+	}
+
+	
+	
+
+	public String[] getFiles() {
+		return files;
+	}
+
+
+	public void setFiles(String[] files) {
+		this.files = files;
 	}
 
 

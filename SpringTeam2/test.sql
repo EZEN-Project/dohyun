@@ -1,5 +1,13 @@
 select *from sellboard
 
+create table attach(
+id number(8) primary key,
+fullname varchar2(200) not null,
+bnum number(6),
+regdate date default sysdate,
+constraint fk_attach_bnum foreign key(bnum) references sellboard(bnum)
+on delete cascade
+)
 
 create table member(
 mnum number(6) primary key,
@@ -37,6 +45,7 @@ veiwcnt number(6) default 0,
 bcount number(6) default 1
 )
 select *from sellboard
+delete from sellboard
 regdate DATE DEFAULT SYSDATE,
 updatedate DATE DEFAULT SYSDATE,
 gnum number(6)

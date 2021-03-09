@@ -19,16 +19,76 @@
  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script
  src="/resources/js/upload.js" type="text/javascript"></script>
+ 
+ <style type="text/css">
+ .uploadedList li{
+      list-style: none;
+      margin-top: 20px;
+   }
+ 
+ </style>
 </head>
 <body>
+
+<div class="container">
 ${vo.title }<br>
 ${vo.price }<br>
 ${vo.bcount }<br>
 ${vo.content }<br>
+	<div class="form-group">          
+	     <ul class="clearfix uploadedList"></ul>      
+	</div>
 
 <hr>
 
+	<div class="row">
+         <button id="read_btn_update" class="btn btn-warning">수정</button>
+         <button id="read_btn_delete" class="btn btn-danger">삭제</button>
+         <button id="read_btn_list" class="btn btn-info">목록</button>
+	</div><!--class=row  -->
+      
+<p>
 <button>장바구니</button>
+</div>
 
+
+
+   <form action="/sellboard/delete" method="post">
+      <input type="hidden" name="bnum" value="${vo.bnum}">      
+   </form>
+   
+   
+<script type="text/javascript">	
+		$(document).ready(function() {
+	         
+	         var bnum = ${vo.bnum};
+	         
+	         $.getJSON("/sellboard/getAttaches/"+bnum, function(result) {
+	        	 
+	        	 str = '';
+	        	 
+	            for (var i = 0; i < result.length; i++) {
+					data = result[i];
+					str += makeHtmlCode_read(data)
+					
+				}
+	            
+	            $(".uploadedList").html(str);
+	         });
+		
+	         
+	         $("#read_btn_update").click(function() {
+	             location.assign("/sellboard/update/${vo.bnum}");
+	          });
+	          
+	          
+	          $("#read_btn_delete").click(function() {
+	              $("form").submit();
+	           });
+	});
+	
+	
+
+</script>
 </body>
 </html>
