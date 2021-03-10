@@ -39,6 +39,9 @@ ${vo.content }<br>
 	     <ul class="clearfix uploadedList"></ul>      
 	</div>
 
+
+	
+
 <hr>
 
 	<div class="row">
@@ -47,9 +50,7 @@ ${vo.content }<br>
          <button id="read_btn_list" class="btn btn-info">목록</button>
 	</div><!--class=row  -->
       
-<p>
-<button>장바구니</button>
-</div>
+
 
 
 

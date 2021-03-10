@@ -42,7 +42,7 @@ public class SellBoardServiceImpl implements SellBoardService{
 
 	@Override
 	public void update(SellBoardVO vo) {
-		sellboardDao.updateUI(vo);
+		sellboardDao.update(vo);
 		
 	}
 

@@ -1,4 +1,4 @@
-select *from sellboard
+select *from attach
 
 create table attach(
 id number(8) primary key,

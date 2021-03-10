@@ -14,8 +14,9 @@ public interface SellBoardDAO {
 
 	public SellBoardVO updateUI(int bnum);
 
-	public void updateUI(SellBoardVO vo);
+	public void update(SellBoardVO vo);
 
 	public void delete(int bnum);
 
+	public void addAttach(String fullName, int bnum);
 }

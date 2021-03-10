@@ -44,7 +44,7 @@ public class SellBoardDAOImpl implements SellBoardDAO{
 	}
 
 	@Override
-	public void updateUI(SellBoardVO vo) {
+	public void update(SellBoardVO vo) {
 		sqlSession.update(NS+".update", vo);
 		
 	}
@@ -52,6 +52,15 @@ public class SellBoardDAOImpl implements SellBoardDAO{
 	@Override
 	public void delete(int bnum) {
 		sqlSession.delete(NS+".delete", bnum);
+		
+	}
+	
+	@Override
+	public void addAttach(String fullName, int bnum) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("fullName", fullName);
+		map.put("bnum", bnum);
+		sqlSession.insert(NS+".addAttach", map);
 		
 	}
 

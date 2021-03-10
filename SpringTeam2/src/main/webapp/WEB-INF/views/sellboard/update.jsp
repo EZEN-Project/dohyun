@@ -41,7 +41,11 @@
 	</div>
 	
 	<div class="row">
-		<form action="/sellboard/insert" method="post">
+		<form action="/sellboard/update" method="post">
+			<div class="form-group">
+               <input type="hidden" value="${vo.bnum}" id="bnum" name="bnum" class="form-control" readonly>
+            </div>
+		
 		
 			<div class="input-group">
 			  <span class="input-group-addon" id="title">제목</span>

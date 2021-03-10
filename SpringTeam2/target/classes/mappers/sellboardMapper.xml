@@ -26,6 +26,14 @@
       SELECT fullName FROM attach WHERE bnum = #{bnum} order by regdate ASC
 	</select>
 	
+	<insert id="addAttach">
+		INSERT INTO attach (id, fullName, bnum) 
+		VALUES 
+		((SELECT NVL2(MAX(id), MAX(id)+1, 1) FROM attach)
+		 , #{fullName}, #{bnum})
+	</insert>
+	
+	
 	<select id="updateUI" resultType="kr.co.domain.SellBoardVO">
 		SELECT * FROM sellboard WHERE bnum = #{bnum}
 	</select>
